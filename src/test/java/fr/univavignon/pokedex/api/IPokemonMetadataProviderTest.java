@@ -1,25 +1,33 @@
 package fr.univavignon.pokedex.api;
 import static org.junit.Assert.assertEquals;
 import static  org.mockito.Mockito.*;
+
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class IPokemonMetadataProviderTest {
 
+    @Mock
+    private IPokemonMetadataProvider pokemonMetadataProviderMock;
+
+    @Before
+    public void setUp() throws PokedexException {
+        MockitoAnnotations.initMocks(this);
+
+        when(pokemonMetadataProviderMock.getPokemonMetadata(0))
+                .thenReturn(new PokemonMetadata(0, "Bulbasaur", 126, 126, 90));
+    }
+
     @Test
-    public  void testgetPokemonMetadata() throws PokedexException {
+    public void testGetPokemonMetadata() throws PokedexException {
+        PokemonMetadata pokemonMetadata = pokemonMetadataProviderMock.getPokemonMetadata(0);
 
-        IPokemonMetadataProvider metaDataMock = mock(IPokemonMetadataProvider.class);
-        when(metaDataMock.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "Bulbizarre", 126, 126,90));
-
-        //Pokemon pk1 = new Pokemon(0, "Bulbizarre", 126, 126,90,613,64,4000,4,56);
-
-        //Pokemon pk2 = new Pokemon(133, "Aquali",186,168,260,2729,202,5000,4,100);
-
-        PokemonMetadata result = metaDataMock.getPokemonMetadata(0);
-
-        assertEquals(new PokemonMetadata(0, "Bulbizarre", 126, 126,90), result);
-
-        verify(metaDataMock).getPokemonMetadata(0);
-
+        assertEquals(0, pokemonMetadata.getIndex());
+        assertEquals("Bulbasaur", pokemonMetadata.getName());
+        assertEquals(126, pokemonMetadata.getAttack());
+        assertEquals(126, pokemonMetadata.getDefense());
+        assertEquals(90, pokemonMetadata.getStamina());
     }
 }

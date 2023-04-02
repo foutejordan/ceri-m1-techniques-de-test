@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="pokemon" />
+        <module name="ceri-m1-techniques-de-test" />
       </profile>
     </annotationProcessing>
   </component>
