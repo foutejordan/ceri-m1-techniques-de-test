@@ -17,13 +17,14 @@ public class IPokemonFactoryTest {
 
     private static IPokemonFactory pokemonFactory;
 
-    private static PokemonMetadata bulbasaurMetadata = new PokemonMetadata(0, "Bulbasaur", 126, 126, 90);
+    private static PokemonMetadata bulbasaurMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
 
     @BeforeClass
     public static void setUp() throws PokedexException {
-        MockitoAnnotations.initMocks(IPokemonFactoryTest.class);
-
+        metadataProvider = mock(IPokemonMetadataProvider.class);
+        pokemonFactory = mock(IPokemonFactory.class);
         Mockito.when(metadataProvider.getPokemonMetadata(0)).thenReturn(bulbasaurMetadata);
+        Mockito.when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "Bulbizarre", 126, 126, 90,613, 64, 4000, 4,56));
 
     }
 

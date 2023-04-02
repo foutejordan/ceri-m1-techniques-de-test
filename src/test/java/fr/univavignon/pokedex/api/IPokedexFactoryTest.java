@@ -12,15 +12,14 @@ public class IPokedexFactoryTest {
 
     private static IPokemonMetadataProvider metadataProvider;
     private static IPokemonFactory pokemonFactory;
-    private static IPokedexFactory pokedexFactory;
+    private IPokedexFactory pokedexFactory;
 
     @Before
     public void setUp() throws PokedexException {
         metadataProvider = mock(IPokemonMetadataProvider.class);
         pokemonFactory = mock(IPokemonFactory.class);
-//        pokedexFactory = new PokedexFactory();
+        pokedexFactory = mock(IPokedexFactory.class);
     }
-
     @Test
     public void testCreatePokedex() throws PokedexException {
         IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);

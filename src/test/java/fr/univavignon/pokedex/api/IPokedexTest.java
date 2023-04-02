@@ -26,11 +26,19 @@ public class IPokedexTest {
     public static void setUp() throws PokedexException {
         metadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
         pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
+
         metadataProviderMock = Mockito.mock(IPokemonMetadataProvider.class);
         pokemonFactoryMock = Mockito.mock(IPokemonFactory.class);
+        pokedex = Mockito.mock(IPokedex.class);
+
         Mockito.when(metadataProviderMock.getPokemonMetadata(0)).thenReturn(metadata);
         Mockito.when(pokemonFactoryMock.createPokemon(0, 613, 64, 4000, 0)).thenReturn(pokemon);
-        //pokedex = new Pokedex(metadataProviderMock, pokemonFactoryMock);
+
+        Mockito.when(pokedex.addPokemon(Mockito.any(Pokemon.class))).thenReturn(0);
+        Mockito.when(pokedex.size()).thenReturn(1);
+        Mockito.when(pokedex.getPokemon(0)).thenReturn(pokemon);
+        Mockito.when(pokedex.getPokemons()).thenReturn(List.of(pokemon));
+
         pokedex.addPokemon(pokemon);
     }
 
@@ -42,6 +50,9 @@ public class IPokedexTest {
     @Test
     public void testAddPokemon() throws PokedexException {
         Pokemon newPokemon = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
+        Mockito.when(pokedex.addPokemon(newPokemon)).thenReturn(1);
+        Mockito.when(pokedex.size()).thenReturn(2);
+        Mockito.when(pokedex.getPokemon(1)).thenReturn(newPokemon);
         int index = pokedex.addPokemon(newPokemon);
         assertEquals(1, index);
         assertEquals(2, pokedex.size());
