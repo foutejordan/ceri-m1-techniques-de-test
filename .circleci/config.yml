@@ -19,7 +19,7 @@ jobs:
           command: "mvn test"
       - run:
           name: "Generate Jacoco reports"
-          command: "./mvnw clean test jacoco:report"
+          command: "mvn clean test jacoco:report"
           environment:
             CODECOV_TOKEN: $CODECOV_TOKEN
       - run:
