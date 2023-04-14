@@ -12,28 +12,33 @@ import org.mockito.MockitoAnnotations;
 
 public class IPokemonFactoryTest {
 
-    @Mock
-    private static IPokemonMetadataProvider metadataProvider;
+    /*@Mock
+    private static IPokemonMetadataProvider metadataProvider;*/
+
+    private static Pokemon pokemon1, pokemon2;
 
     private static IPokemonFactory pokemonFactory;
 
-    private static PokemonMetadata bulbasaurMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+
 
     @BeforeClass
     public static void setUp() throws PokedexException {
-        metadataProvider = mock(IPokemonMetadataProvider.class);
+        /*metadataProvider = mock(IPokemonMetadataProvider.class);
         pokemonFactory = mock(IPokemonFactory.class);
         Mockito.when(metadataProvider.getPokemonMetadata(0)).thenReturn(bulbasaurMetadata);
-        Mockito.when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "Bulbizarre", 126, 126, 90,613, 64, 4000, 4,56));
+        Mockito.when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "Bulbizarre", 126, 126, 90,613, 64, 4000, 4,56));*/
 
+        pokemonFactory = new PokemonFactory();
+        pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
+        pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
     }
 
     @Test
     public void testCreatePokemon() throws PokedexException {
-        Pokemon Bulbizarre = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        Assert.assertEquals(613, Bulbizarre.getCp());
-        Assert.assertEquals(64, Bulbizarre.getHp());
-        Assert.assertEquals(4000, Bulbizarre.getDust());
-        Assert.assertEquals(4, Bulbizarre.getCandy());
+        Pokemon newPokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        Assert.assertEquals(newPokemon.getCp(), pokemon1.getCp());
+        Assert.assertEquals(newPokemon.getHp(), pokemon1.getHp());
+        Assert.assertEquals(newPokemon.getDust(), pokemon1.getDust());
+        Assert.assertEquals(newPokemon.getCandy(), pokemon1.getCandy());
     }
 }

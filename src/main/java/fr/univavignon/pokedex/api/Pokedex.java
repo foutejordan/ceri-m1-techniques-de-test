@@ -34,7 +34,7 @@ public class Pokedex implements IPokedex{
                     return pokemon;
                 }
             }
-            throw new PokedexException("Invalid index: " + id);
+            throw new PokedexException("Invalid index in pokedex: " + id);
     }
     @Override
     public List<Pokemon> getPokemons() {

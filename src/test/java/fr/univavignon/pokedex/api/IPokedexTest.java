@@ -52,10 +52,14 @@ public class IPokedexTest {
     @Test
     public void testAddPokemon() throws PokedexException {
         int id1 = pokedex.addPokemon(pokemon1);
+        assertEquals(id1,0);
+        assertEquals(pokedex.size(),1);
+
+
         int id2 = pokedex.addPokemon(pokemon2);
 
-        assertEquals(2, pokedex.size());
-        assertEquals(pokemon1, pokedex.getPokemon(id1));
+        assertEquals(pokedex.size(),2);
+        assertEquals(id2,1);
     }
 
     @Test
