@@ -41,4 +41,17 @@ public class IPokemonFactoryTest {
         Assert.assertEquals(newPokemon.getDust(), pokemon1.getDust());
         Assert.assertEquals(newPokemon.getCandy(), pokemon1.getCandy());
     }
+    @Test
+    public void testCreatePokemon2() throws PokedexException {
+        //when(pokemonFactory.createPokemon(133,2729,202,5000,4)).thenReturn(aquali);
+        Pokemon newPokemon = pokemonFactory.createPokemon(133,2729,202,5000,4);
+
+        Assert.assertEquals(newPokemon.getCp(), pokemon2.getCp());
+        Assert.assertEquals(newPokemon.getCandy(), pokemon2.getCandy());
+        Assert.assertEquals(newPokemon.getDust(), pokemon2.getDust());
+        Assert.assertEquals(newPokemon.getHp(), pokemon2.getHp());
+        Assert.assertEquals(newPokemon.getIndex(), pokemon2.getIndex());
+        Assert.assertEquals(newPokemon.getAttack(), pokemon2.getAttack());
+        Assert.assertTrue(newPokemon.getIv() >=0 && newPokemon.getIv() <=100);
+    }
 }
