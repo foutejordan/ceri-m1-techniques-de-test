@@ -13,7 +13,7 @@ Groupe Foute
 
 
 ## Description
-Description de votre projet Pokémon
+Description du projet Pokémon
 
 ## Choix techniques d'implémentation
-Explication de vos choix techniques d'implémentation dans votre projet Pokémon
+Explication des choix techniques d'implémentation du projet Pokémon

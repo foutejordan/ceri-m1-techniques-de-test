@@ -29,7 +29,7 @@ public class IPokemonFactoryTest {
     }
 
     @Test
-    public void testCreatePokemon() {
+    public void testCreatePokemon() throws PokedexException {
         Pokemon Bulbizarre = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
         Assert.assertEquals(613, Bulbizarre.getCp());
         Assert.assertEquals(64, Bulbizarre.getHp());
