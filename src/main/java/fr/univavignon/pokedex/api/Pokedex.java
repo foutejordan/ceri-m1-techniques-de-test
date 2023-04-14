@@ -28,11 +28,13 @@ public class Pokedex implements IPokedex{
     }
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-        if (id >= 0 && id < pokemons.size()) {
-            return pokemons.get(id);
-        } else {
+
+            for (Pokemon pokemon: pokemons){
+                if (pokemon.getIndex() == id){
+                    return pokemon;
+                }
+            }
             throw new PokedexException("Invalid index: " + id);
-        }
     }
     @Override
     public List<Pokemon> getPokemons() {

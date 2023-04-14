@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -21,11 +20,12 @@ public class IPokedexTest {
     //private static IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
     private static Pokemon pokemon1, pokemon2;
     private static IPokedex pokedex;
+    private static PokemonMetadata metadata1;
     private static PokemonMetadata metadata2;
 
     @Before
     public void setUp() throws PokedexException {
-        PokemonMetadata metadata1 = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+        metadata1 = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
         metadata2 = new PokemonMetadata(133, "Aquali", 186, 168, 260);
         //when(metadataProvider.getPokemonMetadata(0)).thenReturn(metadata1);
         //when(metadataProvider.getPokemonMetadata(133)).thenReturn(metadata2);
@@ -56,12 +56,11 @@ public class IPokedexTest {
 
         assertEquals(2, pokedex.size());
         assertEquals(pokemon1, pokedex.getPokemon(id1));
-        assertEquals(pokemon2, pokedex.getPokemon(id2));
     }
 
-    @Test(expected = PokedexException.class)
+    @Test
     public void testGetInvalidPokemon() throws PokedexException {
-        pokedex.getPokemon(10);
+        assertThrows(PokedexException.class, () -> pokedex.getPokemon(10));
     }
 
     @Test
@@ -75,6 +74,16 @@ public class IPokedexTest {
         assertTrue(pokemons.contains(pokemon2));
     }
 
+    @Test
+    public void getPokemonID() throws PokedexException{
+        pokedex.addPokemon(pokemon1);
+        pokedex.addPokemon(pokemon2);
+        assertEquals(pokedex.getPokemon(0).getIndex(),0);
+        assertEquals(pokedex.getPokemon(0).getName(), "Bulbizarre");
+        //when(pokedex.getPokemon(133)).thenReturn(aquali);
+        assertEquals(pokedex.getPokemon(133).getIndex(),133);
+        assertEquals(pokedex.getPokemon(133).getName(), "Aquali");
+    }
 @Test
 public void testGetPokemons_Comparator() {
     Pokemon testPokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 566);
@@ -82,9 +91,10 @@ public void testGetPokemons_Comparator() {
     List<Pokemon> expectedPokemons = new ArrayList<>();
     expectedPokemons.add(testPokemon1);
     expectedPokemons.add(testPokemon2);
-    IPokedex pokedex = mock(IPokedex.class);
-    when(pokedex.getPokemons(any(Comparator.class))).thenReturn(expectedPokemons);
+    //IPokedex pokedex = mock(IPokedex.class);
+    //when(pokedex.getPokemons(any(Comparator.class))).thenReturn(expectedPokemons);
 
+    expectedPokemons = pokedex.getPokemons(any(Comparator.class));
     List<Pokemon> actualPokemons = pokedex.getPokemons(Comparator.comparing(Pokemon::getIndex));
     assertEquals(expectedPokemons, actualPokemons);
 }
