@@ -15,6 +15,14 @@ jobs:
     steps:
       - checkout
       - run:
+        name: Build
+        command: |
+          if [ "$CIRCLE_BRANCH" == "master" ]; then
+            mvn -B -DskipTests clean package
+          else
+            echo "$CIRCLE_BRANCH"
+          fi
+      - run:
           name: "test"
           command: "mvn test"
       - run:
