@@ -11,6 +11,6 @@
         <property name="ignoreFailures" value="false"/>
     </module>
     <module name="HTML">
-        <property name="outputFile" value="${project.build.directory}/checkstyle.html"/>
+        <property name="outputFile" value="target/site/checkstyle.html"/>
     </module>
 </configuration>

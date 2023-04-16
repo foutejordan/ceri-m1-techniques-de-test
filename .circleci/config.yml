@@ -37,9 +37,6 @@ jobs:
           name: Run Checkstyle
           command: mvn checkstyle:checkstyle
   # Copie du rapport Checkstyle généré dans le dossier de déploiement
-      - run:
-          name: Copy Checkstyle Report
-          command: cp -R target/site/checkstyle $CIRCLE_ARTIFACTS
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
