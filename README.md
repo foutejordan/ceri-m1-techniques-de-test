@@ -11,6 +11,8 @@ Groupe Foute
 [![CircleCI](https://dl.circleci.com/insights-snapshot/gh/foutejordan/ceri-m1-techniques-de-test/master/say-hello-workflow/badge.svg?window=30d)](https://app.circleci.com/insights/github/foutejordan/ceri-m1-techniques-de-test/workflows/say-hello-workflow/overview?branch=master&reporting-window=last-30-days&insights-snapshot=true)
 [![codecov](https://codecov.io/gh/foutejordan/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=KCWEC19HT7)](https://codecov.io/gh/foutejordan/ceri-m1-techniques-de-test)
 
+## Rapport checklist
+[![Checkstyle](https://img.shields.io/badge/checkstyle-passing-brightgreen.svg)](https://github.com/foutejordan/ceri-m1-techniques-de-test/target/site/checkstyle.html)
 
 ## Description
 Description du projet Pokémon

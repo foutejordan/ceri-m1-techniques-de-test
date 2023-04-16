@@ -1,0 +1,16 @@
+<configuration>
+    <filesets>
+        <fileset dir="${basedir}/src/main/java">
+            <include name="**/*.java"/>
+        </fileset>
+    </filesets>
+    <module name="Checker">
+        <!-- Spécifications des règles de codage  -->
+        <property name="severity" value="warning"/>
+        <property name="charset" value="UTF-8"/>
+        <property name="ignoreFailures" value="false"/>
+    </module>
+    <module name="HTML">
+        <property name="outputFile" value="${project.build.directory}/checkstyle.html"/>
+    </module>
+</configuration>
