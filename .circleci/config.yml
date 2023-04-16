@@ -26,9 +26,6 @@ jobs:
           name: "test"
           command: "mvn test"
       - run:
-          name: site #pour màj le checkstyle
-          command: mvn site
-      - run:
           name: "Generate Jacoco reports"
           command: "mvn clean test jacoco:report"
           environment:
