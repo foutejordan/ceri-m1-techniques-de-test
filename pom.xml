@@ -63,11 +63,7 @@
         </execution>
       </executions>
       <configuration>
-        <outputDir>target/site/checkstyle</outputDir>
-
-        <inputFiles>
-          <inputFile>checkstyle.xml</inputFile>
-        </inputFiles>
+        <configLocation>checkstyle.xml</configLocation>
       </configuration>
     </plugin>
   </plugins>
