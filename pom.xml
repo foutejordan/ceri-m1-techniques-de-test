@@ -41,6 +41,22 @@
           </reportSet>
         </reportSets>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.3.1</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+            <configuration>
+              <outputDirectory>target/site/javadoc</outputDirectory>
+            </configuration>
+          </reportSet>
+        </reportSets>
+      </plugin>
     </plugins>
   </reporting>
 
@@ -97,6 +113,21 @@
         </execution>
       </executions>
     </plugin>
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <version>3.3.1</version>
+      <executions>
+        <execution>
+          <id>javadoc</id>
+          <goals>
+            <goal>javadoc</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+
   </plugins>
     <testSourceDirectory>src/test/java</testSourceDirectory>
 </build>
