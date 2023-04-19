@@ -34,7 +34,10 @@ jobs:
           name: "Publish code coverage to Codecov"
           command: "bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN"
       - run:
-          name: Run Checkstyle
+          name: "generate site"
+          command: "mvn site"
+      - run:
+          name: "Run Checkstyle"
           command: mvn checkstyle:checkstyle
   # Copie du rapport Checkstyle généré dans le dossier de déploiement
 

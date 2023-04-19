@@ -21,7 +21,33 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
-  
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.2.1</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <configLocation>checkstyle.xml</configLocation>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
   <build>
   <plugins>
    <plugin>
@@ -49,23 +75,24 @@
           
         </executions>
       </plugin>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-checkstyle-plugin</artifactId>
-      <version>3.2.1</version>
-      <executions>
-        <execution>
-          <id>checkstyle</id>
-          <phase>verify</phase>
-          <goals>
-            <goal>check</goal>
-          </goals>
-        </execution>
-      </executions>
-      <configuration>
-        <configLocation>checkstyle.xml</configLocation>
-      </configuration>
-    </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <id>validate</id>
+            <phase>validate</phase>
+            <configuration>
+              <configLocation>checkstyle.xml</configLocation>
+            </configuration>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
   </plugins>
     <testSourceDirectory>src/test/java</testSourceDirectory>
 </build>
