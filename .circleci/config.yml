@@ -37,6 +37,9 @@ jobs:
           name: "generate site"
           command: "mvn site"
       - run:
+          name: "post"
+          command: mvn post-site
+      - run:
           name: "Run Checkstyle"
           command: mvn checkstyle:checkstyle
   # Copie du rapport Checkstyle généré dans le dossier de déploiement
