@@ -1,37 +1,21 @@
-# UCE Génie Logiciel Avancé : Techniques de tests
+# Mon Projet Pokémon
 
-## Introduction
+## Auteur
+Jordan FOUTE TAPE
 
-Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
-Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante : 
-- Setup du projet
-- Mise en place des outils d’intégration continue
-- Écriture des tests unitaires
-- Écriture des mocks, et validation des tests
-- Développement dirigé par les tests
-- Documentation et conventions de style
-- Test d'une implémentation donnée
+## Groupe
+Groupe Foute
 
-Le projet consiste à mettre en place un outil d’analyse statistique pour le jeu Pokémon GO.  
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
+## Badges
 
-## Sujets
+[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/foutejordan/ceri-m1-techniques-de-test/master/say-hello-workflow/badge.svg?window=30d)](https://app.circleci.com/insights/github/foutejordan/ceri-m1-techniques-de-test/workflows/say-hello-workflow/overview?branch=master&reporting-window=last-30-days&insights-snapshot=true)
+[![codecov](https://codecov.io/gh/foutejordan/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=KCWEC19HT7)](https://codecov.io/gh/foutejordan/ceri-m1-techniques-de-test)
 
-L'ensemble des sujets de TPs peut être trouvé dans le dossier `TPs`.
+## Rapport checklist
+[![Checkstyle](https://img.shields.io/badge/checkstyle-passing-brightgreen.svg)](https://github.com/foutejordan/ceri-m1-techniques-de-test/target/site/checkstyle.html)
 
-Le dossier `src` contient la définition de l'ensemble des interfaces qui seront l'objet de vos travaux.
+## Description
+Description du projet Pokémon
 
-## Rendus
-
-Le rendu des TPs se fait au rythme suivant :
-
-- TP1 : 1ère séance
-- TP2 : 2ème séance
-- TP3 : 3ème séance
-- TP4 : 5ème séance
-- TP5 : dernière séance
-- TP6 : dernière séance
-
-Pour chaque rendu, le projet dans son intégralité doit être déposé sur la plateforme.
-
-[^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
+## Choix techniques d'implémentation
+Explication des choix techniques d'implémentation du projet Pokémon

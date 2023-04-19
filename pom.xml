@@ -10,6 +10,12 @@
   <name>Pokemon</name>
   <url>http://maven.apache.org</url>
 
+  <developers>
+    <developer>
+      <name> FOUTE Jordan </name>
+    </developer>
+  </developers>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
@@ -22,8 +28,48 @@
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-shade-plugin</artifactId>
     <version>1.0</version>
- 
    </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.5</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+          
+        </executions>
+      </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-checkstyle-plugin</artifactId>
+      <version>3.2.1</version>
+      <executions>
+        <execution>
+          <id>checkstyle</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>check</goal>
+          </goals>
+        </execution>
+      </executions>
+      <configuration>
+        <outputDir>target/site/checkstyle</outputDir>
+
+        <inputFiles>
+          <inputFile>checkstyle.xml</inputFile>
+        </inputFiles>
+      </configuration>
+    </plugin>
   </plugins>
     <testSourceDirectory>src/test/java</testSourceDirectory>
 </build>
@@ -38,8 +84,8 @@
 
     <dependency>
       <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>1.8.4</version>
+      <artifactId>mockito-core</artifactId>
+      <version>4.11.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
