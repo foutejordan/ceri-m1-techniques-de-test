@@ -21,7 +21,9 @@ public class IPokedexFactoryTest {
 
     @BeforeClass
     public static void setUp() {
-        pokedexFactory = mock(IPokedexFactory.class);
+        metadataProvider = new PokemonMetadataProvider();
+        pokemonFactory = new PokemonFactory();
+        pokedexFactory = new PokedexFactory();
     }
 
     @Test
@@ -31,9 +33,7 @@ public class IPokedexFactoryTest {
         IPokedex pokedex = mock(IPokedex.class);
 
         when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);*/
-        metadataProvider = new PokemonMetadataProvider();
-        pokemonFactory = new PokemonFactory();
-        pokedexFactory = new PokedexFactory();
+
         pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
 
