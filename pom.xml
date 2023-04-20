@@ -20,6 +20,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <badges.skip>false</badges.skip>
   </properties>
 
   <reporting>
@@ -95,7 +96,7 @@
           </goals>
           <configuration>
             <skip>${badges.skip}</skip>
-            <outputDir>target/site</outputDir>
+            <outputDir>target/site/badges</outputDir>
             <inputFiles>
               <inputFile>target/checkstyle-result.xml</inputFile>
             </inputFiles>

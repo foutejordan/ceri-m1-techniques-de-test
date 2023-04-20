@@ -1,1 +1,0 @@
-/home/jordan/.jdks/openjdk-19.0.1/bin/javadoc @options @packages
