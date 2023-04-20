@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 import static org.junit.Assert.assertEquals;
 import static  org.mockito.Mockito.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -36,5 +37,9 @@ public class IPokemonMetadataProviderTest {
         assertEquals(pokemonMetadataProvider.getPokemonMetadata(0).getAttack(), metadata1.getAttack());
         assertEquals(pokemonMetadataProvider.getPokemonMetadata(0).getDefense(), metadata1.getDefense());
         assertEquals(pokemonMetadataProvider.getPokemonMetadata(0).getStamina(), metadata1.getStamina());
+    }
+    @Test
+    public void exceptionMetadataTest() throws PokedexException {
+        Assert.assertThrows(PokedexException.class, () -> pokemonMetadataProvider.getPokemonMetadata(151));
     }
 }

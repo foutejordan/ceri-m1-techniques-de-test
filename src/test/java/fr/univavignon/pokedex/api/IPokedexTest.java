@@ -1,14 +1,13 @@
 package fr.univavignon.pokedex.api;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -88,20 +87,17 @@ public class IPokedexTest {
         assertEquals(pokedex.getPokemon(133).getIndex(),133);
         assertEquals(pokedex.getPokemon(133).getName(), "Aquali");
     }
-@Test
-public void testGetPokemons_Comparator() {
-    Pokemon testPokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 566);
-    Pokemon testPokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
-    List<Pokemon> expectedPokemons = new ArrayList<>();
-    expectedPokemons.add(testPokemon1);
-    expectedPokemons.add(testPokemon2);
-    //IPokedex pokedex = mock(IPokedex.class);
-    //when(pokedex.getPokemons(any(Comparator.class))).thenReturn(expectedPokemons);
 
-    expectedPokemons = pokedex.getPokemons(any(Comparator.class));
-    List<Pokemon> actualPokemons = pokedex.getPokemons(Comparator.comparing(Pokemon::getIndex));
-    assertEquals(expectedPokemons, actualPokemons);
-}
+    @Test
+    public void getPokemonsSortedByIndexTest(){
+        List<Pokemon> pokemonsSorted = new ArrayList<>(Arrays.asList(pokemon1, pokemon2));
+        List<Pokemon> expectedPokemonsSorted = Collections.unmodifiableList(pokemonsSorted);
+
+        pokedex.addPokemon(pokemon2);
+        pokedex.addPokemon(pokemon1);
+
+        Assert.assertEquals(pokedex.getPokemons(PokemonComparators.INDEX), expectedPokemonsSorted);
+    }
 
     @Test
     public void getPokemonMetadataTest() throws PokedexException {
