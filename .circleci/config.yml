@@ -47,7 +47,7 @@ jobs:
             cd gh-pages
             git add .
             git commit -m "Update Javadoc"
-            git push -f gh-token gh-pages
+            git push origin gh-pages
   # Copie du rapport Checkstyle généré dans le dossier de déploiement
 
 # Invoke jobs via workflows
