@@ -35,6 +35,9 @@ jobs:
       - run:
           name: "Run Checkstyle"
           command: mvn checkstyle:checkstyle
+      - store_artifacts:
+          path: target/site/checkstyle-result.svg
+          destination: artifacts3
       - run:
           name: Generate and Deploy Javadoc
           command: |
