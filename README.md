@@ -12,7 +12,6 @@ Groupe Foute
 [![codecov](https://codecov.io/gh/foutejordan/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=KCWEC19HT7)](https://codecov.io/gh/foutejordan/ceri-m1-techniques-de-test)
 
 ## Rapport checklist
-[![Checkstyle](https://img.shields.io/badge/code%20style-checkstyle-brightgreen)](https://github.com/foutejordan/ceri-m1-techniques-de-test/target/site/badges/checkstyle-result.svg)
 ![Checkstyle](target/site/badges/checkstyle-result.svg)
 ## Description
 Description du projet Pokémon
