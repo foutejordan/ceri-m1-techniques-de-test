@@ -26,11 +26,6 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>3.4.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.2.1</version>
         <reportSets>
@@ -44,19 +39,15 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.1.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.3.1</version>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>javadoc</report>
-            </reports>
-            <configuration>
-              <outputDirectory>target/site/javadoc</outputDirectory>
-            </configuration>
-          </reportSet>
-        </reportSets>
       </plugin>
+
     </plugins>
   </reporting>
 
@@ -120,10 +111,14 @@
       <version>3.3.1</version>
       <executions>
         <execution>
-          <id>javadoc</id>
+          <id>generate-javadoc</id>
+          <phase>package</phase>
           <goals>
             <goal>javadoc</goal>
           </goals>
+          <configuration>
+            <outputDirectory>target/site/apidocs</outputDirectory>
+          </configuration>
         </execution>
       </executions>
     </plugin>
@@ -131,6 +126,14 @@
   </plugins>
     <testSourceDirectory>src/test/java</testSourceDirectory>
 </build>
+
+  <distributionManagement>
+    <site>
+      <id>github</id>
+      <name>GitHub Pages</name>
+      <url>https://github.com/foutejordan/ceri-m1-techniques-de-test.git/</url>
+    </site>
+  </distributionManagement>
 
   <dependencies>
     <dependency>

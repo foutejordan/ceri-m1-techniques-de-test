@@ -14,14 +14,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - run:
-          name: Build
-          command: |
-            if [ "$CIRCLE_BRANCH" == "master" ]; then
-              mvn -B -DskipTests clean package
-            else
-              echo "$CIRCLE_BRANCH"
-            fi
+
       - run:
           name: "test"
           command: "mvn test"
@@ -45,15 +38,17 @@ jobs:
       - run:
           name: Generate and Deploy Javadoc
           command: |
+            mvn javadoc:javadoc
+            mkdir -p docs/javadoc
+            cp -R target/site/javadoc/* docs/javadoc
             git config --global user.email "2ftech20@gmail.com"
             git config --global user.name "foutejordan"
-            git clone --branch=gh-pages --depth=1 git@github.com:foutejordan/ceri-m1-techniques-de-test.git gh-pages
-            rm -rf gh-pages/*
-            cp -R target/site/javadoc/* gh-pages/
-            cd gh-pages
-            git add .
-            git commit -m "Update Javadoc"
-            git push origin gh-pages
+            git remote add gh-token "https://github.com/foutejordan/ceri-m1-techniques-de-test.git" && git fetch gh-token && git fetch gh-token gh-pages:gh-pages && git checkout gh-pages
+            git rm -rf ./javadoc
+            mv -fv docs/javadoc/* ./
+            git add -f .
+            git commit -m "Lastest Javadoc on successful build auto-pushed to gh-pages"
+            git push -f gh-token gh-pages
   # Copie du rapport Checkstyle généré dans le dossier de déploiement
 
 # Invoke jobs via workflows
