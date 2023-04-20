@@ -130,13 +130,7 @@
     <testSourceDirectory>src/test/java</testSourceDirectory>
 </build>
 
-  <distributionManagement>
-    <site>
-      <id>github</id>
-      <name>GitHub Pages</name>
-      <url>https://github.com/foutejordan/ceri-m1-techniques-de-test.git/</url>
-    </site>
-  </distributionManagement>
+
 
   <dependencies>
     <dependency>
