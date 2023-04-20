@@ -103,8 +103,6 @@
 <error line="18" severity="error" message="Line is longer than 80 characters (found 106)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="19" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="/home/jordan/Documents/DOSSIER AVIGNON/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexException.java">
-</file>
 <file name="/home/jordan/Documents/DOSSIER AVIGNON/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexFactory.java">
 <error line="3" column="55" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="4" column="5" severity="error" message="Class &apos;PokedexFactory&apos; looks like designed for extension (can be subclassed), but the method &apos;createPokedex&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;PokedexFactory&apos; final or making the method &apos;createPokedex&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
