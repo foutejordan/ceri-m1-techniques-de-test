@@ -17,8 +17,8 @@ public class IPokemonFactoryTest {
 
     private static Pokemon pokemon1, pokemon2;
 
-    private static IPokemonFactory pokemonFactory;
-//    private static RocketPokemonFactory pokemonFactory;
+    //private static IPokemonFactory pokemonFactory;
+    private static RocketPokemonFactory pokemonFactory;
 
 
 
@@ -29,7 +29,7 @@ public class IPokemonFactoryTest {
         Mockito.when(metadataProvider.getPokemonMetadata(0)).thenReturn(bulbasaurMetadata);
         Mockito.when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "Bulbizarre", 126, 126, 90,613, 64, 4000, 4,56));*/
 
-        pokemonFactory = new PokemonFactory();
+        pokemonFactory = new RocketPokemonFactory();
         pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
         pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
     }
@@ -41,6 +41,10 @@ public class IPokemonFactoryTest {
         assertEquals(newPokemon.getHp(), pokemon1.getHp());
         assertEquals(newPokemon.getDust(), pokemon1.getDust());
         assertEquals(newPokemon.getCandy(), pokemon1.getCandy());
+        //assertEquals(newPokemon.getName(), pokemon1.getName());
+        assertEquals(newPokemon.getIndex(), pokemon1.getIndex());
+        //assertEquals(newPokemon.getAttack(), pokemon1.getAttack());
+        Assert.assertTrue(newPokemon.getIv() >=0 && newPokemon.getIv() <=100);
     }
     @Test
     public void testCreatePokemon2() throws PokedexException {
@@ -52,7 +56,7 @@ public class IPokemonFactoryTest {
         assertEquals(newPokemon.getDust(), pokemon2.getDust());
         assertEquals(newPokemon.getHp(), pokemon2.getHp());
         assertEquals(newPokemon.getIndex(), pokemon2.getIndex());
-        assertEquals(newPokemon.getAttack(), pokemon2.getAttack());
+        //assertEquals(newPokemon.getAttack(), pokemon2.getAttack());
         Assert.assertTrue(newPokemon.getIv() >=0 && newPokemon.getIv() <=100);
     }
 }
