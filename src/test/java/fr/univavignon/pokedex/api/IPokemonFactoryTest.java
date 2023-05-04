@@ -41,9 +41,9 @@ public class IPokemonFactoryTest {
         assertEquals(newPokemon.getHp(), pokemon1.getHp());
         assertEquals(newPokemon.getDust(), pokemon1.getDust());
         assertEquals(newPokemon.getCandy(), pokemon1.getCandy());
-        //assertEquals(newPokemon.getName(), pokemon1.getName());
+        assertEquals(newPokemon.getName(), pokemon1.getName());
         assertEquals(newPokemon.getIndex(), pokemon1.getIndex());
-        //assertEquals(newPokemon.getAttack(), pokemon1.getAttack());
+        assertEquals(newPokemon.getAttack(), pokemon1.getAttack());
         Assert.assertTrue(newPokemon.getIv() >=0 && newPokemon.getIv() <=100);
     }
     @Test
@@ -56,7 +56,7 @@ public class IPokemonFactoryTest {
         assertEquals(newPokemon.getDust(), pokemon2.getDust());
         assertEquals(newPokemon.getHp(), pokemon2.getHp());
         assertEquals(newPokemon.getIndex(), pokemon2.getIndex());
-        //assertEquals(newPokemon.getAttack(), pokemon2.getAttack());
+        assertEquals(newPokemon.getAttack(), pokemon2.getAttack());
         Assert.assertTrue(newPokemon.getIv() >=0 && newPokemon.getIv() <=100);
     }
 }
