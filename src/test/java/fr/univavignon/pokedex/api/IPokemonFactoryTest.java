@@ -17,8 +17,8 @@ public class IPokemonFactoryTest {
 
     private static Pokemon pokemon1, pokemon2;
 
-    //private static IPokemonFactory pokemonFactory;
-    private static RocketPokemonFactory pokemonFactory;
+    private static IPokemonFactory pokemonFactory;
+//    private static RocketPokemonFactory pokemonFactory;
 
 
 
@@ -29,7 +29,7 @@ public class IPokemonFactoryTest {
         Mockito.when(metadataProvider.getPokemonMetadata(0)).thenReturn(bulbasaurMetadata);
         Mockito.when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "Bulbizarre", 126, 126, 90,613, 64, 4000, 4,56));*/
 
-        pokemonFactory = new RocketPokemonFactory();
+        pokemonFactory = new PokemonFactory();
         pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
         pokemon2 = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
     }
